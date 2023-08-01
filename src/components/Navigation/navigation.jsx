@@ -1,10 +1,11 @@
+import React from "react";
 function Navigation() {
   return(
-    <div>
+    <>
       <h1>
-        Заголовок, тут будет кнопка фильтра
+      Успешные космические миссии SpaceX за 2015-2019 года
       </h1>
-    </div>
+    </>
   )
 }
 
