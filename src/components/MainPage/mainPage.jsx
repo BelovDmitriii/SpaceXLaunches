@@ -12,7 +12,6 @@ function SpaceXLaunches() {
       params: {
         start: "2015-01-01",
         end: "2019-12-31",
-        success: true,
       },
     })
       .then(response => setLaunches(response.data))
@@ -33,11 +32,11 @@ function SpaceXLaunches() {
     <div>
       <button onClick={sortLaunches}>{sortOrder === "descending" ? "Sort by Oldest" : "Sort by Newest"}</button>
       {launches.map(launch => (
-        <div key={launch.flight_number}>
+          <div key={launch.id}>
           <h2>{launch.mission_name}</h2>
           <p>{new Date(launch.launch_date_utc).toLocaleDateString()}</p>
           <p>{launch.details}</p>
-          <img src={launch.rocket.image_url} alt={launch.rocket.rocket_name} />
+          <img src={launch.rocket.img} alt={launch.rocket.rocket_name} />
         </div>
       ))}
     </div>
