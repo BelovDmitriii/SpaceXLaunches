@@ -1,10 +1,13 @@
 import React from "react";
+import Navigation from "./components/Navigation/navigation.jsx";
+import MainPage from "./components/MainPage/mainPage.jsx";
 
 const App = () =>{
     return (
-        <h1>
-            Hello world! I am using React
-        </h1>
+      <div>
+        <Navigation />
+        <MainPage />
+      </div>
     )
 }
 
