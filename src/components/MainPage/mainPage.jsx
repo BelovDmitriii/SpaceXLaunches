@@ -2,33 +2,37 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Launches from "../Launches/launches";
 
-const URL = 'https://api.spacexdata.com';
+const BASE_URL = 'https://api.spacexdata.com';
 
 function SpaceXLaunches() {
   const [launches, setLaunches] = useState([]);
-  const [sortOrder, setSortOrder] = useState("descending");
+  const [sortOrder, setSortOrder] = useState("ascending");
 
   useEffect(() => {
-    axios.get(`${URL}/v5/launches`)
+    axios.get(`${BASE_URL}/v5/launches`)
       .then(response => setLaunches(response.data))
       .catch(error => console.log(error));
   }, []);
 
-  const setSort = () => {
-    sortOrder === "descending" ? setSortOrder("ascending") : setSortOrder("descending");
-  };
-
   const handleSortChange = () => {
-    sortOrder === 'descending' ? 
-    setLaunches(launches.sort((a, b) => new Date(b.date_utc) - new Date(a.date_utc)))
-    : setLaunches(launches.sort((a, b) => new Date(a.date_utc) - new Date(b.date_utc)));
-    setSort();
+    setSortOrder(value => value === "ascending" ? "descending" : "ascending");
   }
+
+  const filteredLaunches = launches
+  .filter(item => item.success)
+  .filter(item => Number(item.date_local.split('-')[0]) >= 2015 
+  && Number(item.date_local.split('-')[0]) <= 2019);
+
+  const sortedLaunches = filteredLaunches.sort(
+    sortOrder === "ascending"
+      ? (a, b) => new Date (b.date_utc) - new Date(a.date_utc)
+      : (a, b) => new Date (a.date_utc) - new Date(b.date_utc)
+  )
 
   return (
     <>
       <button onClick={handleSortChange}>{sortOrder === "descending" ? "Sort by Oldest" : "Sort by Newest"}</button>
-      <Launches launches={launches} />
+      <Launches launches={sortedLaunches} />
     </>
   );
 }

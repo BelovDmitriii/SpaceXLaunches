@@ -4,7 +4,7 @@ import MainPage from "./components/MainPage/mainPage.jsx";
 
 const App = () =>{
     return (
-      <div>
+      <div style={{textAlign:"center"}}>
         <Navigation />
         <MainPage />
       </div>
