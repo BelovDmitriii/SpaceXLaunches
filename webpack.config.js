@@ -24,12 +24,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/, 
+        test: /\.(js|jsx)$/,
+        use: ['style-loader', 'css-loader', 'less-loader'], 
         exclude: /node_modules/, 
         use: 'babel-loader', 
       },
     ],
   },
+
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'public', 'index.html')

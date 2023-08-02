@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Launches from "../Launches/launches";
 
-const BASE_URL = 'https://api.spacexdata.com';
+export const BASE_URL = 'https://api.spacexdata.com';
 
 function SpaceXLaunches() {
   const [launches, setLaunches] = useState([]);
@@ -20,8 +20,8 @@ function SpaceXLaunches() {
 
   const filteredLaunches = launches
   .filter(item => item.success)
-  .filter(item => Number(item.date_local.split('-')[0]) >= 2015 
-  && Number(item.date_local.split('-')[0]) <= 2019);
+  .filter(item => new Date(item.date_local).getFullYear() >= 2015 
+  && new Date(item.date_local).getFullYear() <= 2019);
 
   const sortedLaunches = filteredLaunches.sort(
     sortOrder === "ascending"
@@ -31,7 +31,7 @@ function SpaceXLaunches() {
 
   return (
     <>
-      <button onClick={handleSortChange}>{sortOrder === "descending" ? "Sort by Oldest" : "Sort by Newest"}</button>
+      <button onClick={handleSortChange}>{sortOrder === "descending" ? "Sort by Newest" : "Sort by Oldest"}</button>
       <Launches launches={sortedLaunches} />
     </>
   );
