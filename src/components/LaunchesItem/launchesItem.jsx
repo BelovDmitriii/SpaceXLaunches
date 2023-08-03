@@ -1,18 +1,19 @@
 import React from "react";
+import './launches-item.css';
 
 function LaunchesItem (props) {
   const {launch} = props;
   return(
-    <div style={{width:"60%", textAlign:"center", margin:"auto"}}>
-    <div>
-      <h2>{launch.name}</h2>
-      <p>{new Date(launch.date_utc).toLocaleDateString()}</p>
-      <p>{launch.details}</p>
+    <div className="launches_item">
+      <div className="launches_item__mainInfo">
+        <h2>{launch.name}</h2>
+        <p>{new Date(launch.date_utc).toLocaleDateString()}</p>
+        <p>{launch.details}</p>
+      </div>
+      <div className="launches_item__image">
+        <img className="img" src={launch.links.flickr.original[launch.links.flickr.original.length - 1]} alt='rocket' />
+      </div>
     </div>
-  <div style={{height:"250px", width:"100%"}}>
-    <img style={{height:"90%"}} src={launch.links.flickr.original[launch.links.flickr.original.length - 1]} alt='rocket' />
-  </div>
-  </div>
   );
 }
 

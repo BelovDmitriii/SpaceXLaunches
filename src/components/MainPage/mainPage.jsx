@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Launches from "../Launches/launches";
 import Button from "../Button/button";
 import { useGetLaunchesQuery } from "../../reducers/api/api";
-import Loader from "../Loader/loader";
+import './main-page.css';
 
 function SpaceXLaunches() {
   const [sortOrder, setSortOrder] = useState("ascending");
@@ -29,14 +29,11 @@ function SpaceXLaunches() {
         onClick={handleSortChange} 
         text={sortOrder === "descending" ? "Sort by Newest" : "Sort by Oldest"}
       />
-      <div>
-        {isLoading && <Loader />}
+      <div className="main-page__container">
+        {isLoading && <h2>...Loading...</h2>}
         {error && <h2>Ошибка загрузки...</h2>}
+        <Launches launches={sortedLaunches}/>
       </div>
-      <div style={{width:'100px', height:'100px'}}>
-        <Loader />
-      </div>
-      <Launches launches={sortedLaunches}/>
     </>
   );
 }

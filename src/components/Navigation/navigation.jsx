@@ -1,12 +1,13 @@
 import React from "react";
+import "./navigation.css";
 
 function Navigation() {
 
   return(
     <>
-      <h1>
+      <div className="navigation">
         Успешные космические миссии SpaceX за 2015-2019 года
-      </h1>
+      </div>
     </>
   )
 }

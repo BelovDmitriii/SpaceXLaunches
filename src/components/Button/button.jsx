@@ -1,4 +1,5 @@
 import React from "react";
+import './button.css';
 
 function Button({onClick, text}){
   
@@ -7,7 +8,7 @@ function Button({onClick, text}){
     onClick && onClick();
   };
   return(
-    <button onClick={buttonOnClick}>
+    <button onClick={buttonOnClick} className="button">
       {text}
     </button>
   )
