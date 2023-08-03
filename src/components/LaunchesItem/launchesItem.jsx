@@ -5,7 +5,7 @@ function LaunchesItem (props) {
   return(
     <div style={{width:"60%", textAlign:"center", margin:"auto"}}>
     <div>
-      <h2>{launch.mission_name}</h2>
+      <h2>{launch.name}</h2>
       <p>{new Date(launch.date_utc).toLocaleDateString()}</p>
       <p>{launch.details}</p>
     </div>

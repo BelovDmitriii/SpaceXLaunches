@@ -1,38 +1,21 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import Launches from "../Launches/launches";
-
-export const BASE_URL = 'https://api.spacexdata.com';
+import Button from "../Button/button";
 
 function SpaceXLaunches() {
-  const [launches, setLaunches] = useState([]);
   const [sortOrder, setSortOrder] = useState("ascending");
-
-  useEffect(() => {
-    axios.get(`${BASE_URL}/v5/launches`)
-      .then(response => setLaunches(response.data))
-      .catch(error => console.log(error));
-  }, []);
 
   const handleSortChange = () => {
     setSortOrder(value => value === "ascending" ? "descending" : "ascending");
   }
 
-  const filteredLaunches = launches
-  .filter(item => item.success)
-  .filter(item => new Date(item.date_local).getFullYear() >= 2015 
-  && new Date(item.date_local).getFullYear() <= 2019);
-
-  const sortedLaunches = filteredLaunches.sort(
-    sortOrder === "ascending"
-      ? (a, b) => new Date (b.date_utc) - new Date(a.date_utc)
-      : (a, b) => new Date (a.date_utc) - new Date(b.date_utc)
-  )
-
   return (
     <>
-      <button onClick={handleSortChange}>{sortOrder === "descending" ? "Sort by Newest" : "Sort by Oldest"}</button>
-      <Launches launches={sortedLaunches} />
+      <Button 
+        onClick={handleSortChange} 
+        text={sortOrder === "descending" ? "Sort by Newest" : "Sort by Oldest"}
+      />
+      <Launches />
     </>
   );
 }
