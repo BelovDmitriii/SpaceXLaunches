@@ -1,45 +1,70 @@
+# Getting Started with Create React App
 
-# Subtotal. Тестовое задание на Frontend-разработчика (React)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Написать  React-приложение, которое будет выводить все успешные космические миссии SpaceX за 2015-2019 года. Также должна быть возможность отсортировать все подходящие миссии в порядке убывания/возрастания годов (первоначальное состояние - в порядке убывания, т. е. сначала самые свежие данные).
+## Available Scripts
 
+In the project directory, you can run:
 
-Для получения данных следует использовать следующее REST API: [github.com/r-spacex/SpaceX-API](https://github.com/r-spacex/SpaceX-API)
+### `npm start`
 
-## Для каждого запуска выведите на экран:
-* название миссии
-* дату запуска
-* текстовую информацию о запуске
-* картинку ракеты, для которой производился запуск (для этого может понадобиться отдельный сетевой запрос)
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## Рекомендации по выполнению:
-* развернуть проект без использования CRA
-* для сборки использовать webpack
-* использовать Redux Toolkit + RTK Query
-* использовать функциональный стиль
-* использовать хуки
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-## Критерии оценки:
-* правильность выполнения задания
-* чистота кода и архитектура решения
-* наличие unit-тестов (Jest, React Testing Library)
+### `npm test`
 
-# Выполнение тестового задания: 
- * Написано приложение, которое выводит все успешные космические миссии SpaceX за 2015-2019 года.
-  Приложение написано, используя функциональные компоненты, хуки и библиотеку RTK query, для хранения глобального состояния.
-    - для этого полученные с сервера данные фильтруем методом .filter на удачность запуска и сразу же 
-      фильтруем на период запуска ракет (от 2015 до 2019 годов), получив полный год.
-    - реализуем функцию сортировки и передаем данную функцию параметром на кнопку, проверяя, какое на 
-      данный момент состояние у кнопки. (для хранения состояния используем хук useState)
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-  * Для хранения глобального состояния используем библиотеку RTK query. 
-    - в файле api через функцию createApi получаем хук useGetLaunchesQuery, благодаря которому мы можем 
-      получить данные с сервера
-    - создаем store, в котором описываем reducer
-    - в компоненте App оборачиваем все файлы программы в Provider, передаем в него значение store
+### `npm run build`
 
-  * таким образом написано приложение, которое получает с сервера https://api.spacexdata.com/v5/launches
-    данные о всех запущенных ракетах SpaceX, фильтрует полученные данные и отображает в виде карточек. 
-    Также в приложении реализована кнопка сортировки, которая сортирует полученные данные по "возрастанию" 
-    и "по убыванию"
-  
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
