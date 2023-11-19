@@ -1,4 +1,4 @@
-https://belovdmitriii.github.io/sveltTasks/
+https://BelovDmitriii.github.io/SpaceXLaunches
 
 # Subtotal. Тестовое задание на Frontend-разработчика (React)
 
